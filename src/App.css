@@ -81,7 +81,7 @@ a{
     transition: transform 200ms;
 }
 a:hover,a:focus{
-  color: blue;
+  color: hsl(50,89%,65%);
   transform: scale(1.1);
 }
 a:active{
@@ -95,19 +95,20 @@ a:active{
 }
 
 ::-webkit-scrollbar-track {
-  background:#95a5a6;
+  background:black;
   border-radius: 100vw;
   margin-block: 0.5em;
+  border: 1px solid hsl(0, 0%, 70%);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #34495e;
+  background: hsl(50,89%,65%);
   border: 0.05em solid #95a5a6;
   border-radius: 100vw;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #2c3e50;
+  background: hsl(50,89%,40%);
 }
 button{
     padding: .5em 1.5em;
@@ -175,7 +176,7 @@ button:focus{
     --clr-black:hsla(0, 0%, 0%, 0.8);
     --clr-light: hsl(0,0%,100%);
     --clr-dark: hsl(0,0%,19%);
-    --clr-accent: hsl(170,82%,48%);
+    --clr-accent: hsl(50,89%,65%);
     
     --fs-h1: 3rem;
     --fs-h2: 2.25rem;
@@ -215,10 +216,39 @@ body {
     background-color: black; 
     color: var(--clr-black);
     padding:  1em;
+    position: relative;
 }
-.container-1-theme{
-    background-color: var(--clr-light);
-    text-align: center;   
+#Up{
+  position: fixed;
+  background-color: hsl(50,89%,65%);
+  color: black;
+  font-weight: 900;
+  top: 60%;
+  right: 5%;
+  padding: .5em 1.5em;
+  border-radius: 15px;
+}
+#Up::after{
+  content: '';
+  position: absolute;
+  padding: .5em 1.5em;
+  border-radius: 15px;
+  /* transform: translateX(50%) translateY(-50%); */
+  top: 30%;
+  right: 25%;
+  animation: up-animation 1s infinite ;
+  background-color: hsl(50,89%,65%);
+}
+@keyframes up-animation {
+  0%{
+    transform: scale(1);
+    opacity: 1;
+  }
+  100%{
+    transform: scale(4.5);
+    opacity: 0;
+
+  }
 }
 /* typography */
 p{
@@ -247,6 +277,7 @@ h3 {
 }
 img{
   height: 80vh;
+  object-fit: contain;
   
 }
 .bears{
@@ -280,10 +311,29 @@ img{
   padding: 0 2em;
   color: white;
   background-color: black;
+  position: relative;
 }
 .Navbar button{
   margin-left:  auto;
   font-size: 1rem;
+}
+.cart{
+  position: absolute;
+  top: 100%;
+  right: 5%;
+}
+.cart img {
+  height: 200px;
+}
+.cart-beers {
+  display: flex;
+  /* justify-content: space-between; */
+  gap: 1em;
+  align-items: center;
+  background-color: white;
+  color: black;
+  padding: 1em;
+  
 }
 .Hero{
   background-image: url('./image/sword.jpg');

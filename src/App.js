@@ -11,9 +11,7 @@ function App() {
   const [cart, setCart] = React.useState([])
   const [dataa2, setData2] = React.useState([])
   const [loading, setLoading] = React.useState(false)
-function addToCart(id){
-  console.log(id)
-}
+
   async function getApi() {
     setLoading(true)
     const respone = await fetch('https://api.punkapi.com/v2/beers/')
@@ -22,16 +20,23 @@ function addToCart(id){
     setData2(data)
     setLoading(false)
   }
+  console.log(typeof localStorage.getItem("cart"))
   React.useEffect(() => {
+    if (localStorage.getItem("cart") !== "undefined") {
+      let cartStore = JSON.parse(localStorage.getItem("cart"))
+      setCart(cartStore)
 
+    }
     getApi()
   }, [])
   const [formData, setFormData] = React.useState(
     {
-      firstName: "",
+      searchInput: "",
     }
   )
-
+  if (cart.length) {
+    localStorage.setItem("cart", JSON.stringify(cart))
+  }
   function handleChange(event) {
     const { name, value, type, checked } = event.target
     setFormData(prevFormData => {
@@ -40,19 +45,13 @@ function addToCart(id){
         [name]: type === "checkbox" ? checked : value
       }
     })
-    // setData(e=> {
-    //   e.filter(e=> e.name.includes(formData.firstName))
-    // })
-
-    setData2(dataa.filter(e => e.name.toLowerCase().includes(formData.firstName.toLowerCase() || " ")))
+    setData2(dataa.filter(e => e.name.toLowerCase().includes(formData.searchInput.toLowerCase() || " ")))
   }
-
-console.log(cart )
-
 
   return (
     <div className="App">
-      <Navbar />
+      <a id='Up' href='#home'>go to Up</a>
+      <Navbar cart={cart} />
       <Hero />
       <About />
       <div className='search-bear'>
@@ -61,13 +60,13 @@ console.log(cart )
           type="text"
           placeholder="Beer Name"
           onChange={handleChange}
-          name="firstName"
-          value={formData.firstName}
+          name="searchInput"
+          value={formData.searchInput}
         />
       </div>
 
-      <div className='App-bear-container'>
-        {loading ? <h1>Loading ...</h1> : dataa2.map(e => <Bear obj={e} key={e.id} cartState={setCart}/>)}
+      <div className='App-bear-container' id='products'>
+        {loading ? <h1>Loading ...</h1> : dataa2.map(e => <Bear obj={e} key={e.id} cartState={setCart} />)}
       </div>
       <Footer />
     </div>

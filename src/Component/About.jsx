@@ -2,7 +2,7 @@ import React from 'react'
 
 function About() {
     return (
-        <div className='About'>
+        <div className='About' id='about'>
             <div>
                 <h2>what we do </h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis numquam illum amet culpa delectus possimus nemo voluptatem quasi earum enim? Obcaecati, beatae corporis. Sequi expedita quam quas qui, vel et!</p>
