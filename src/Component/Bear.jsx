@@ -3,6 +3,7 @@ import React from 'react'
 function Bear(props) {
 
     function addToCart(event) {
+        
 
         if (event.currentTarget.textContent === "Remove from Cart") {
             event.currentTarget.textContent = "Add To Cart"
@@ -11,12 +12,27 @@ function Bear(props) {
         }
         else {
             event.currentTarget.textContent = "Remove from Cart"
-            props.cartState(e => ([...e, {
-                id: props.obj.id,
-                name: props.obj.name,
-                img: props.obj.image_url,
-                description: props.obj.description
-            }]))
+            props.cartState(e =>{
+                console.log(!!e)
+                if (e===null){
+                    return [{
+                        id: props.obj.id,
+                        name: props.obj.name,
+                        img: props.obj.image_url,
+                        description: props.obj.description
+                    }]
+                }
+                else{
+                    return [...e, {
+                        id: props.obj.id,
+                        name: props.obj.name,
+                        img: props.obj.image_url,
+                        description: props.obj.description
+                    }]
+                }
+               
+            } )
+                
 
         }
 
