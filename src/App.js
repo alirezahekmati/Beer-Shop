@@ -34,6 +34,7 @@ function App() {
       searchInput: "",
     }
   )
+  console.log(cart,dataa)
   if (cart && cart.length) {
     localStorage.setItem("cart", JSON.stringify(cart))
   }
