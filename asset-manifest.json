@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Beer-Shop/static/css/main.15e811d6.css",
-    "main.js": "/Beer-Shop/static/js/main.15285ad7.js",
+    "main.js": "/Beer-Shop/static/js/main.1110686b.js",
     "static/media/sword.jpg": "/Beer-Shop/static/media/sword.01e150da9b2badcbb1b8.jpg",
     "index.html": "/Beer-Shop/index.html",
     "main.15e811d6.css.map": "/Beer-Shop/static/css/main.15e811d6.css.map",
-    "main.15285ad7.js.map": "/Beer-Shop/static/js/main.15285ad7.js.map"
+    "main.1110686b.js.map": "/Beer-Shop/static/js/main.1110686b.js.map"
   },
   "entrypoints": [
     "static/css/main.15e811d6.css",
-    "static/js/main.15285ad7.js"
+    "static/js/main.1110686b.js"
   ]
 }
