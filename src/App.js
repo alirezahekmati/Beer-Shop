@@ -22,11 +22,7 @@ function App() {
   }
   
   React.useEffect(() => {
-    if (localStorage.getItem("cart") !== "undefined") {
-      let cartStore = JSON.parse(localStorage.getItem("cart"))
-      setCart(cartStore)
-
-    }
+   
     getApi()
   }, [])
   const [formData, setFormData] = React.useState(
@@ -35,9 +31,7 @@ function App() {
     }
   )
   console.log(cart,dataa)
-  if (cart && cart.length) {
-    localStorage.setItem("cart", JSON.stringify(cart))
-  }
+  
   function handleChange(event) {
     const { name, value, type, checked } = event.target
     setFormData(prevFormData => {
