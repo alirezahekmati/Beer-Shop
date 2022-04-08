@@ -20,7 +20,7 @@ function App() {
     setData2(data)
     setLoading(false)
   }
-  console.log(typeof localStorage.getItem("cart"))
+  
   React.useEffect(() => {
     if (localStorage.getItem("cart") !== "undefined") {
       let cartStore = JSON.parse(localStorage.getItem("cart"))
@@ -34,7 +34,7 @@ function App() {
       searchInput: "",
     }
   )
-  if (cart.length) {
+  if (cart && cart.length) {
     localStorage.setItem("cart", JSON.stringify(cart))
   }
   function handleChange(event) {
